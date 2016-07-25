@@ -1,0 +1,16 @@
+version: '2'
+services:
+
+  console:
+    build: .
+    command: bundle exec irb -r './src/run_script.rb'
+    depends_on: [minecraft]
+    links:
+      - minecraft
+
+
+  minecraft:
+    image: "wh11e7rue/raspberryjuice:flat"
+    ports:
+      - "25565:25565"
+      - "4711:4711"
